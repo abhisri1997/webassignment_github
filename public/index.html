@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./css/weather.css" />
+  <title>WeatherApp</title>
+</head>
+
+<body>
+
+  <div class="loading">
+    <div class="loader"></div>
+    <span class="loading-text">Loading...</span>
+  </div>
+  <div class="container">
+
+    <section class="top-section">
+
+      <div class="city-temp-details">
+
+        <div class="icon-city_dropdown">
+
+          <img src="./assets/CityIcons/anadyr.svg" alt="city" class="city-icon" loading="lazy" />
+
+          <div class="city-selector">
+
+            <input title="Select city to weather details" type="text" name="cities" list="cityName"
+              placeholder="Select a city..." />
+            <datalist id="cityName">
+              <option value="New Delhi">New Delhi</option>
+              <option value="Greater Noida">Greater Noida</option>
+              <option value="Ghaziabad">Ghaziabad</option>
+            </datalist>
+
+          </div>
+
+        </div>
+
+        <div class="temp-container celcius-container">
+
+          <div class="temp-c">
+            <h3>Temp °C</h3>
+            <h1 class="city-temp-c">25 °C</h1>
+          </div>
+
+        </div>
+
+        <div class="separator"></div>
+
+        <div class="temp-container humidity-container">
+
+          <div class="temp-humidity">
+            <h3>Humidity</h3>
+            <h1 class="city-humidity">26%</h1>
+          </div>
+
+        </div>
+
+
+        <div class="date-time">
+
+          <div class="time" id="top-section-time">
+            <h2 class="city-time">10:10</h2>
+
+            <h3 class="city-second">:44</h3>
+
+            <img src="./assets/Images_Icons/amState.svg" alt="dayState" class="day-night-icon" loading="lazy" />
+          </div>
+
+          <div class="date">
+            <h3 class="city-date">01-Mar-2020</h3>
+          </div>
+
+        </div>
+
+
+        <div class="temp-container farenheit-container">
+
+          <div class="temp-f">
+            <h3>Temp F</h3>
+            <h1 class="city-temp-f">76 F</h1>
+          </div>
+
+        </div>
+
+        <div class="separator"></div>
+
+
+        <div class="temp-container precipitation-container">
+
+          <div class="temp-precipitation">
+            <h3>Precipitation</h3>
+            <h1 class="city-precipitation-top">0%</h1>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="temp-time-range">
+
+        <div class="forecast-time">Now</div>
+        <div class="blank"></div>
+        <div class="forecast-time">11 AM</div>
+        <div class="blank"></div>
+        <div class="forecast-time">12 PM</div>
+        <div class="blank"></div>
+        <div class="forecast-time">1 PM</div>
+        <div class="blank"></div>
+        <div class="forecast-time">2 PM</div>
+        <div class="blank"></div>
+        <div class="forecast-time">3 PM</div>
+
+        <div class="range-separator">|</div>
+        <div class="range-separator">|</div>
+        <div class="range-separator">|</div>
+        <div class="range-separator">|</div>
+        <div class="range-separator">|</div>
+        <div class="range-separator">|</div>
+        <div class="range-separator">|</div>
+        <div class="range-separator">|</div>
+        <div class="range-separator">|</div>
+        <div class="range-separator">|</div>
+        <div class="range-separator">|</div>
+
+        <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="" class="weather-icon" loading="lazy" />
+        <div class="blank"></div>
+        <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="" class="weather-icon" loading="lazy" />
+        <div class="blank"></div>
+        <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="" class="weather-icon" loading="lazy" />
+        <div class="blank"></div>
+        <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="" class="weather-icon" loading="lazy" />
+        <div class="blank"></div>
+        <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="" class="weather-icon" loading="lazy" />
+        <div class="blank"></div>
+        <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="" class="weather-icon" loading="lazy" />
+
+        <h4 class="time-data">6</h4>
+        <div class="blank"></div>
+        <h4 class="time-data">7</h4>
+        <div class="blank"></div>
+        <h4 class="time-data">7</h4>
+        <div class="blank"></div>
+        <h4 class="time-data">8</h4>
+        <div class="blank"></div>
+        <h4 class="time-data">8</h4>
+        <div class="blank"></div>
+        <h4 class="time-data">6</h4>
+
+      </div>
+
+    </section>
+
+    <section class="bottom-section">
+
+      <div class="left-arrow">
+
+        <img src="./assets/Images_Icons/backwardArrow.svg" alt="back" class="left-icon">
+
+      </div>
+
+      <div class="right-arrow">
+
+        <img src="./assets/Images_Icons/forwardArrow.svg" alt="forward" class="right-icon">
+
+      </div>
+
+      <div class="bottom-section-wrapper">
+
+        <div class="bottomn-section-status-bar">
+
+          <h3 class="status-bar-title">Top Cities around world</h3>
+
+          <div title="Select icon to show cities with selected weather condition" class="status-bar-icons"
+            id="preferred_weather">
+
+            <div class="preference-icon active">
+
+              <a title="Cities with Sunny Weather" href="" class="icons">
+                <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="sunny weather" class="sunny-weather" loading="lazy">
+              </a>
+
+            </div>
+
+            <div class="preference-icon">
+
+              <a title="Cities with Snowy Weather" href="" class="icons">
+                <img src="./assets/WeatherIcons/snowflakeIcon.svg" alt="snowy weather" class="snowy-weather"
+                  loading="lazy">
+              </a>
+
+            </div>
+
+            <div class="preference-icon">
+
+              <a title="Cities with Rainy Weather" href="" class="icons">
+                <img src="./assets/WeatherIcons/rainyIcon.svg" alt="rainy weather" class="rainy-weather" loading="lazy">
+              </a>
+
+            </div>
+
+
+
+            <h5>Display Top</h5>
+            <input type="number" min="3" value="4" max="10" name="top" id="top-picker" autofocus>
+          </div>
+
+        </div>
+
+        <div class="carousel-container">
+
+          <!-- <div class="card card-1">
+            <div class="card-details">
+              <h2 class="city-name">New Delhi</h2>
+              <h3 class="current-time">10:00 AM</h3>
+              <h3 class="current-date">2-MAR-2020</h3>
+              <div class="card-humidity">
+
+                <img src="./assets/WeatherIcons/humidityIcon.svg" alt="" class="card-icon" loading="lazy">
+
+                <h6>53%</h6>
+              </div>
+
+              <div class="card-precipitation">
+
+                <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                <h6>10%</h6>
+              </div>
+            </div>
+            <div class="card-temp">
+              <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="" class="card-icon" loading="lazy">
+              25 °C
+            </div>
+          </div>
+
+          <div class="card card-2">
+            <div class="card-details">
+              <h2 class="city-name">New Delhi</h2>
+              <h3 class="current-time">10:00 AM</h3>
+              <h3 class="current-date">2-MAR-2020</h3>
+              <div class="card-humidity">
+
+                <img src="./assets/WeatherIcons/humidityIcon.svg" alt="" class="card-icon" loading="lazy">
+
+                <h6>53%</h6>
+              </div>
+
+              <div class="card-precipitation">
+
+                <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                <h6>10%</h6>
+              </div>
+            </div>
+            <div class="card-temp">
+              <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="" class="card-icon" loading="lazy">
+              25 °C
+            </div>
+          </div>
+
+          <div class="card card-3">
+            <div class="card-details">
+              <h2 class="city-name">New Delhi</h2>
+              <h3 class="current-time">10:00 AM</h3>
+              <h3 class="current-date">2-MAR-2020</h3>
+              <div class="card-humidity">
+
+                <img src="./assets/WeatherIcons/humidityIcon.svg" alt="" class="card-icon" loading="lazy">
+
+                <h6>53%</h6>
+              </div>
+
+              <div class="card-precipitation">
+
+                <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                <h6>10%</h6>
+              </div>
+            </div>
+            <div class="card-temp">
+              <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="" class="card-icon" loading="lazy">
+              25 °C
+            </div>
+          </div>
+
+          <div class="card card-4">
+            <div class="card-details">
+              <h2 class="city-name">New Delhi</h2>
+              <h3 class="current-time">10:00 AM</h3>
+              <h3 class="current-date">2-MAR-2020</h3>
+              <div class="card-humidity">
+
+                <img src="./assets/WeatherIcons/humidityIcon.svg" alt="" class="card-icon" loading="lazy">
+
+                <h6>53%</h6>
+              </div>
+
+              <div class="card-precipitation">
+
+                <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                <h6>10%</h6>
+              </div>
+            </div>
+            <div class="card-temp">
+              <img src="./assets/WeatherIcons/sunnyIcon.svg" alt="" class="card-icon" loading="lazy">
+              25 °C
+            </div>
+          </div> -->
+
+        </div>
+
+        <div class="continent-temperature">
+
+          <div class="title-continent">
+
+            <h3>Cities across continents at a Glance</h3>
+
+            <div class="sort-grid">
+
+              <div class="sort-continent_name">
+                <a href="">Continent Name</a>
+                <img src="./assets/Images_Icons/arrowUp.svg" alt="sort_up" class="sort-icon sort-by-continent_name">
+              </div>
+
+              <div class="sort-temp">
+                <a href="">Temperature</a>
+                <img src="./assets/Images_Icons/arrowDown.svg" alt="sort_down" class="sort-icon sort-by-continent_temp">
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="continent-temp-data">
+
+            <!-- <div class="continent-card">
+
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Kolkatta</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="continent-card">
+              <div class="continent-details">
+
+                <h4 class="continent-name">Asia</h4>
+
+                <span class="continent-city-time">
+
+                  <h5 class="continent-city">Delhi</h5>
+                  <h5 class="continent-time">, 10:10 AM</h5>
+
+                </span>
+
+              </div>
+
+              <div class="continent-temp-details">
+                <h4 class="city-temperature">38 °C</h4>
+
+                <div class="city-precipitation">
+
+                  <img src="./assets/WeatherIcons/precipitationIcon.svg" alt="" class="card-icon" loading="lazy">
+                  <h6>53%</h6>
+
+                </div>
+
+              </div>
+            </div> -->
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <script type="module" src="./js/index.js"></script>
+
+</body>
+
+</html>
